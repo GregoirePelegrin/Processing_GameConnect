@@ -1,5 +1,3 @@
-// Multiple class of block, bc the boolean[] is passed by referrence (same for every block)
-
 int nbrIssuesPerBlock;
 int sizeBlocks;
 
@@ -8,6 +6,7 @@ ArrayList<Block> puzzle;
 void setup(){
   size(600, 600);
   frameRate(30);
+  noFill();
   
   nbrIssuesPerBlock = 4;
   sizeBlocks = 50;
@@ -26,13 +25,13 @@ void setup(){
   Block block = new Block(width/2, height/2, n, s);
   puzzle.add(block);
   boolean[] n2 = new boolean[4];
-  n2[0] = false;
+  n2[0] = true;
   n2[1] = false;
   n2[2] = false;
-  n2[3] = true;
+  n2[3] = false;
   boolean[] s2 = new boolean[4];
-  s2[0] = true;
-  s2[1] = false;
+  s2[0] = false;
+  s2[1] = true;
   s2[2] = false;
   s2[3] = false;
   block = new Block(width/2+sizeBlocks, height/2, n2, s2);
@@ -41,7 +40,6 @@ void setup(){
 
 void draw(){
   background(0);
-  noFill();
   
   for(Block block : puzzle){
     block.display();
